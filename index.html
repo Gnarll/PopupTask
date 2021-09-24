@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PopUp SMS</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="buttons_container">
+      <button class="main_button" onclick="warning.renderPopup()">Warning</button>
+      <button class="main_button" onclick="error.renderPopup()">Error</button>
+      <button class="main_button" onclick="info.renderPopup()">Info</button>
+      <button class="main_button" onclick="success.renderPopup()">Success</button>
+    </div>
+    <div class="popup_container"></div>
+    <script src="./mainFrame.js"></script>
+    <script src="./extend.js"></script>
+    <script src="./errorFrame.js"></script>
+    <script src="./warningFrame.js"></script>
+    <script src="./infoFrame.js"></script>
+    <script src="./successFrame.js"></script>
+  </body>
+</html>
