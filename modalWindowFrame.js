@@ -4,20 +4,9 @@ function ModalWindowFrame(type, title, text) {
 
 extend(ModalWindowFrame, MainFrame);
 
-ModalWindowFrame.prototype.renderPopup = function () {
-  const popupContainer = document.querySelector(`.popup_container`);
-  if (popupContainer) {
-    popupContainer.innerHTML += this.getTemplate();
-  }
-};
-
-ModalWindowFrame.prototype.removePopup = function () {
-  const myModalWindow = document.querySelector(`.${this.type}_window_wrapper`);
-  if (myModalWindow) myModalWindow.remove();
-};
 
 ModalWindowFrame.prototype.getTemplate = function () {
-  return `<div class="${this.type}_window_wrapper">
+  return `<div class="popup_${this.type}">
   <div class="${this.type}_window">
     <button class="modal_close" onclick=${this.type}.removePopup()>Close</button>  
     <h3 class="modal_title">${this.title}</h3>

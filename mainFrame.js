@@ -10,34 +10,17 @@ MainFrame.prototype = {
 };
 
 MainFrame.prototype.getTemplate = function () {
-  return `
-  <div class="popup popup_${this.type}">
-    <div class="popup_wrapper">
-      <div class="popup_image_container">
-        <img class="popup_image" src="./icons/${this.type}.png" alt="logo">
-      </div>
-      <div class="popup_text" >
-        <h3>${this.title}</h3>
-        <p>${this.text}</p>
-      </div>
-      <div class="popup_button">
-        <button onclick="${this.type}.removePopup()">
-          <img class="button_image" src="./icons/close.png" alt="logo">
-        </button>
-      </div>
-    </div>
-  </div>`;
+  return ``;
 };
 
 MainFrame.prototype.renderPopup = function () {
-  const popupContainer = document.querySelector(`.popup_container`);
+  var popupContainer = document.querySelector(`.popup_container`);
   if (popupContainer) {
     popupContainer.innerHTML += this.getTemplate();
-    setTimeout(() => this.removePopup(), 5000);
   }
 };
 
 MainFrame.prototype.removePopup = function () {
-  const popupContainer = document.querySelector(`.popup_${this.type}`);
+  var popupContainer = document.querySelector(`.popup_${this.type}`);
   if (popupContainer) popupContainer.remove();
 };

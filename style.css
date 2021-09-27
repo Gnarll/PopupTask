@@ -89,7 +89,7 @@
   background-color: green;
 }
 
-.modal_window_wrapper {
+.popup_modal {
   background-color: rgba(19, 11, 11, 0.5);
   position: fixed;
   top: 0;
