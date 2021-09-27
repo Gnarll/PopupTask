@@ -14,15 +14,15 @@ MainFrame.prototype.getTemplate = function () {
   <div class="popup popup_${this.type}">
     <div class="popup_wrapper">
       <div class="popup_image_container">
-        <img class="popup_image" src="./icons/${this.type}.png">
+        <img class="popup_image" src="./icons/${this.type}.png" alt="logo">
       </div>
       <div class="popup_text" >
         <h3>${this.title}</h3>
         <p>${this.text}</p>
       </div>
       <div class="popup_button">
-        <button onclick="this.removePopup()">
-          <img class="button_image" src="./icons/close.png">
+        <button onclick="${this.type}.removePopup()">
+          <img class="button_image" src="./icons/close.png" alt="logo">
         </button>
       </div>
     </div>
