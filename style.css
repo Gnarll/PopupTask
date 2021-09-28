@@ -114,9 +114,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Заготовка для будущих анимаций */
-  transition: transform 0.15s ease 0s, opacity 0.15s ease 0s;
-  transform: scale(1);
 }
 
 .modal_close {
@@ -128,15 +125,6 @@
 .modal_text {
   margin-top: 20px;
   width: 500px;
-}
-
-.modal_window_wrapper--active {
-  visibility: visible;
-}
-
-.modal_window_wrapper--active .modal__window {
-  transform: scale(1);
-  opacity: 1;
 }
 
 .visible {
