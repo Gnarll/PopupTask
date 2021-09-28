@@ -1,11 +1,10 @@
-function WarningFrame(type, title, text) {
-  WarningFrame.superclass.constructor.call(this, type, title, text);
-}
+class WarningFrame extends ToastFrame {
+  constructor(type, title, text) {
+    super(type, title, text)
+  }
 
-extend(WarningFrame, ToastFrame);
-
-WarningFrame.prototype.getTemplate = function() {
-  return `
+  getTemplate() {
+    return `
     <div class="popup popup_warning visible">
       <div class="popup_wrapper">
         <div class="popup_image_container">
@@ -22,9 +21,10 @@ WarningFrame.prototype.getTemplate = function() {
         </div>
       </div>
     </div>`
+  }
 }
 
-var warning = new WarningFrame(
+const warning = new WarningFrame(
   "warning",
   "Warning!",
   "Beware, there are some problems."

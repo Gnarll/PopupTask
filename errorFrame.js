@@ -1,11 +1,10 @@
-function ErrorFrame(type, title, text) {
-  ErrorFrame.superclass.constructor.call(this, type, title, text);
-}
+class ErrorFrame extends ToastFrame{
+  constructor(type, title, text) {
+    super(type, title, text)
+  }
 
-extend(ErrorFrame, ToastFrame);
-
-ErrorFrame.prototype.getTemplate = function() {
-  return `
+  getTemplate() {
+    return `
     <div class="popup popup_error visible">
       <div class="popup_wrapper">
         <div class="popup_image_container">
@@ -22,6 +21,7 @@ ErrorFrame.prototype.getTemplate = function() {
         </div>
       </div>
     </div>`
+  }
 }
 
-var error = new ErrorFrame("error", "Error!", "Oops, something is wrong.");
+const error = new ErrorFrame("error", "Error!", "Oops, something is wrong.");

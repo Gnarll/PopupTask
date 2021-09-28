@@ -1,11 +1,10 @@
-function InfoFrame(type, title, text) {
-  InfoFrame.superclass.constructor.call(this, type, title, text);
-}
+class InfoFrame extends ToastFrame {
+  constructor(type, title, text) {
+    super(type, title, text)
+  }
 
-extend(InfoFrame, ToastFrame);
-
-InfoFrame.prototype.getTemplate = function() {
-  return `
+  getTemplate() {
+    return `
     <div class="popup popup_info visible">
       <div class="popup_wrapper">
         <div class="popup_image_container">
@@ -22,9 +21,10 @@ InfoFrame.prototype.getTemplate = function() {
         </div>
       </div>
     </div>`
+  }
 }
 
-var info = new InfoFrame(
+const info = new InfoFrame(
   "info",
   "Information:",
   "There is some information for you."
