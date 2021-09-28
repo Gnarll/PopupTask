@@ -28,7 +28,6 @@ class MainFrame {
 
   removePopup(id) {
     const popupContainer = document.getElementById(`${id}`);
-    console.log(popupContainer);
     if (popupContainer) {
       if (popupContainer.classList.contains("visible")) {
         popupContainer.classList.add("animated");
