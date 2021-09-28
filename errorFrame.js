@@ -1,11 +1,12 @@
-class ErrorFrame extends ToastFrame{
+class ErrorFrame extends ToastFrame {
   constructor(type, title, text) {
-    super(type, title, text)
+    super(type, title, text);
   }
 
   getTemplate() {
+    this.incrementId();
     return `
-    <div class="popup popup_error visible">
+    <div class="popup popup_error visible" id="${this.getId()}">
       <div class="popup_wrapper">
         <div class="popup_image_container">
           <img class="popup_image" src="./icons/error.png" alt="logo">
@@ -20,7 +21,7 @@ class ErrorFrame extends ToastFrame{
           </button>
         </div>
       </div>
-    </div>`
+    </div>`;
   }
 }
 

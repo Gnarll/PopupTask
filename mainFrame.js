@@ -1,8 +1,18 @@
 class MainFrame {
   constructor(type, title, text) {
-    this.type = type
-    this.title = title
-    this.text = text
+    this.type = type;
+    this.title = title;
+    this.text = text;
+  }
+
+  static id = 0;
+
+  getId() {
+    return MainFrame.id;
+  }
+
+  incrementId() {
+    MainFrame.id++;
   }
 
   getTemplate() {
@@ -16,14 +26,14 @@ class MainFrame {
     }
   }
 
-  removePopup() {
-    const popupContainer = document.querySelector(`.popup_${this.type}`);
+  removePopup(id) {
+    const popupContainer = document.getElementById(`${id}`);
+    console.log(popupContainer);
     if (popupContainer) {
-      if(popupContainer.classList.contains('visible')) {
-        popupContainer.classList.add('animated')
-        setTimeout(() => popupContainer.remove(), 1000)
-      }
-      else popupContainer.remove()
+      if (popupContainer.classList.contains("visible")) {
+        popupContainer.classList.add("animated");
+        setTimeout(() => popupContainer.remove(), 1000);
+      } else popupContainer.remove();
     }
   }
 }
