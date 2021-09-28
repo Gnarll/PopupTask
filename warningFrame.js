@@ -2,17 +2,11 @@ function WarningFrame(type, title, text) {
   WarningFrame.superclass.constructor.call(this, type, title, text);
 }
 
-extend(WarningFrame, MainFrame);
-
-WarningFrame.prototype.renderPopup = function() {
-  WarningFrame.superclass.renderPopup.call(this)
-  var bindedRemovePopup = WarningFrame.superclass.removePopup.bind(this)
-  setTimeout(bindedRemovePopup, 5000)
-}
+extend(WarningFrame, ToastFrame);
 
 WarningFrame.prototype.getTemplate = function() {
   return `
-    <div class="popup popup_warning">
+    <div class="popup popup_warning visible">
       <div class="popup_wrapper">
         <div class="popup_image_container">
           <img class="popup_image" src="./icons/warning.png" alt="logo">
@@ -22,7 +16,7 @@ WarningFrame.prototype.getTemplate = function() {
           <p>${this.text}</p>
         </div>
         <div class="popup_button">
-          <button onclick="info.removePopup()">
+          <button onclick="warning.removePopup()">
             <img class="button_image" src="./icons/close.png" alt="logo">
           </button>
         </div>

@@ -22,5 +22,11 @@ MainFrame.prototype.renderPopup = function () {
 
 MainFrame.prototype.removePopup = function () {
   var popupContainer = document.querySelector(`.popup_${this.type}`);
-  if (popupContainer) popupContainer.remove();
+  if (popupContainer) {
+    if(popupContainer.classList.contains('visible')) {
+      popupContainer.classList.add('animated')
+      setTimeout(function(){popupContainer.remove()}, 1000)
+    }
+    else popupContainer.remove()
+  }
 };

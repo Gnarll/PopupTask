@@ -4,12 +4,21 @@ function ModalWindowFrame(type, title, text) {
 
 extend(ModalWindowFrame, MainFrame);
 
+ModalWindowFrame.prototype.renderPopup = function () {
+  ModalWindowFrame.superclass.renderPopup.call(this)
+  var modalWindowBackground = document.querySelector('.popup_modal')
+  modalWindowBackground.addEventListener('click', function(event){
+    if(event.target == modalWindowBackground) {
+      modal.removePopup()
+    }
+  })
+}
 
 ModalWindowFrame.prototype.getTemplate = function () {
-  return `<div class="popup_${this.type}">
-  <div class="${this.type}_window">
-    <button class="modal_close" onclick=${this.type}.removePopup()>Close</button>  
-    <h3 class="modal_title">${this.title}</h3>
+  return `<div class="popup_modal">
+  <div class="modal_window">
+    <button class="modal_close" onclick=modal.removePopup()>Close</button>  
+    <h3>${this.title}</h3>
     <div class="modal_text">${this.text}</div>
   </div>
   </div>`;

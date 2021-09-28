@@ -15,10 +15,10 @@
 .main_button {
   width: 70px;
   text-align: center;
-  background-color: darksalmon;
 }
 
 .main_button:hover {
+  background-color: darksalmon;
 }
 
 .popup_container {
@@ -100,7 +100,7 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  z-index: 99;
+  z-index: 10;
   padding: 30px 0;
 }
 
@@ -125,9 +125,6 @@
   right: 2px;
 }
 
-.modal_title {
-}
-
 .modal_text {
   margin-top: 20px;
   width: 500px;
@@ -140,4 +137,13 @@
 .modal_window_wrapper--active .modal__window {
   transform: scale(1);
   opacity: 1;
+}
+
+.visible {
+  transition: opacity 1s;
+  opacity: 1;
+}
+
+.animated {
+  opacity: 0;
 }
