@@ -1,12 +1,12 @@
-function SuccessFrame(type, title, text) {
-  SuccessFrame.superclass.constructor.call(this, type, title, text);
-}
+class SuccessFrame extends ToastFrame {
+  constructor(type, title, text) {
+    super(type, title, text);
+  }
 
-extend(SuccessFrame, ToastFrame);
-
-SuccessFrame.prototype.getTemplate = function() {
-  return `
-    <div class="popup popup_success visible">
+  getTemplate() {
+    this.incrementId();
+    return `
+    <div class="popup popup_success visible" id="${this.getId()}">
       <div class="popup_wrapper">
         <div class="popup_image_container">
           <img class="popup_image" src="./icons/success.png" alt="logo">
@@ -21,7 +21,8 @@ SuccessFrame.prototype.getTemplate = function() {
           </button>
         </div>
       </div>
-    </div>`
+    </div>`;
+  }
 }
 
-var success = new SuccessFrame("success", "Success!", "Everything is fine.");
+const success = new SuccessFrame("success", "Success!", "Everything is fine.");

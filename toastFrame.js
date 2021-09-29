@@ -1,11 +1,13 @@
-function ToastFrame(type, title, text) {
-    ToastFrame.superclass.constructor.call(this, type, title, text)
-}
+class ToastFrame extends MainFrame {
+  constructor(type, title, text) {
+    super(type, title, text);
+  }
 
-extend(ToastFrame, MainFrame)
-
-ToastFrame.prototype.renderPopup = function() {
-    ToastFrame.superclass.renderPopup.call(this)
-    var bindedRemovePopup = WarningFrame.superclass.removePopup.bind(this)
-    setTimeout(bindedRemovePopup, 5000)
+  renderPopup() {
+    super.renderPopup();
+    const currentId = this.getId();
+    setTimeout(() => {
+      this.removePopup(currentId);
+    }, 5000);
+  }
 }
